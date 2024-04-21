@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Information>
+    <NameOfRoom>
+Room1
+Room2
+Room3
+Room4
+SecretRoom
+</NameOfRoom>
+    <RoomDescreption>
+desc1
+desc2
+desc3
+desc4
+secretDesc
+</RoomDescreption>
+    <AvailableDirections>
+Forward
+Left
+Right
+BacK
+</AvailableDirections>
+</Information>

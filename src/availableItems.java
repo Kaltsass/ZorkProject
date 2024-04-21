@@ -30,11 +30,11 @@ public class availableItems {
 
         Element pickable = items.createElement("pickables");
         pickable.appendChild(items.createTextNode("\nPaper\n"));
-        pickable.appendChild(items.createTextNode("Item1\n"));
-        pickable.appendChild(items.createTextNode("Item2\n"));
-        pickable.appendChild(items.createTextNode("Item3\n"));
-        pickable.appendChild(items.createTextNode("Item4\n"));
-        pickable.appendChild(items.createTextNode("Item5\n"));
+        pickable.appendChild(items.createTextNode("Key\n"));
+        pickable.appendChild(items.createTextNode("Flashlight\n"));
+        pickable.appendChild(items.createTextNode("Bottle\n"));   //Incase of a wrong command drink some water to rethink
+        pickable.appendChild(items.createTextNode("BikeChain\n"));
+        pickable.appendChild(items.createTextNode("USBstick\n"));
 
 
         root.appendChild(pickable);
