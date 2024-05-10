@@ -24,7 +24,7 @@ import java.io.FileReader;
 public class FileChecker {
 
     public static void main(String[] args) throws Exception {
-        File file = new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txt");
+        File file = new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\LoadingGame.txt");
 
         if (file.exists() && !file.isDirectory()) {
             if (file.length() == 0) {

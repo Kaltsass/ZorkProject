@@ -5,9 +5,11 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class Main {
@@ -16,16 +18,16 @@ public class Main {
         welcoming.main(args);
         System.out.println("\n");
 
-        // Call helpXml to display available commands
-       // helpXml.main(args);
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\LoadingGame.txt"));
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\commands.xml"));
+        Document doc = builder.parse(new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\commands.xml"));
 
         Scanner keyboardInput = new Scanner(System.in);
         String userInput;
+
+        Hashtable<String, String> inventory = new Hashtable<>();
         do {
             System.out.println("Enter a command:");
             userInput = keyboardInput.nextLine();
@@ -37,7 +39,8 @@ public class Main {
                 }
             }
                 // Check for valid command
-                if (isValidCommand(doc, userInput)) {
+                if (isValidCommand(doc, userInput,inventory)) {
+
                     writer.write(userInput);
                     writer.newLine();
                 } else if (!userInput.equalsIgnoreCase("exit")) {
@@ -49,7 +52,7 @@ public class Main {
 
             writer.close();
         }
-        private static boolean isValidCommand (Document doc, String command){
+        private static boolean isValidCommand (Document doc, String command,Hashtable<String, String> inventory)throws Exception{
             NodeList nodeList = doc.getElementsByTagName("*");
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
@@ -61,6 +64,12 @@ public class Main {
                         if (childNode.getNodeType() == Node.TEXT_NODE) {
                             String text = childNode.getTextContent();
                             if (text.contains(command)) {
+                                if (command.equalsIgnoreCase("open inventory")) {
+                                    MovementCreation.handleCommand(command, inventory);
+                                } else {
+                                    MovementCreation.handleCommand(command, null); // Call handleCommand for movement commands
+                                    System.out.println("\n");
+                                }
                                 return true;
                             }
                         }
