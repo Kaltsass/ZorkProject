@@ -68,7 +68,7 @@ public class RoomOne{
             rootElement.appendChild(clonedElement);
         }
 
-        File outputFile = new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\RoomItems.xml");
+        File outputFile = new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\RoomItems.xml");
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource domSource  = new DOMSource(document);

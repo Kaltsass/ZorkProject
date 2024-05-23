@@ -10,7 +10,7 @@ public class welcoming {
     public static void  main(String [] args)throws Exception{
         callCount++;
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\welcome.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\welcome.txt"));
         writer.write("Καλώς ήρθες στο \"Το Μυστηριώδες Κτήριο του Πανεπιστημίου\"!\n" +
                 "\n" +
                 "Είσαι ένας ανυποψίαστος εξερευνητής που έχεις μπει στον λαβύρινθο του πανεπιστημιακού κτηρίου, αλλά η εξέδρα του μυστηρίου σε περιμένει να αποκαλυφθεί. Μετά από μια απρόσμενη ανακάλυψη, συνειδητοποιείς ότι οι πέντε αίθουσες του κτηρίου κρύβουν μια σειρά από γρίφους που πρέπει να λυθούν για να αποκαλυφθούν τα μυστικά τους.\n" +
@@ -21,7 +21,7 @@ public class welcoming {
         writer.append("A game by LGGG");
         writer.close();
 
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\welcome.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\welcome.txt"));
         String line;
         while((line = reader.readLine()) != null) {
             System.out.println(line);

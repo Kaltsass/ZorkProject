@@ -55,7 +55,7 @@ public class helpXml {
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(commands);
 
-        StreamResult result = new StreamResult("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\commands.xml");
+        StreamResult result = new StreamResult("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\commands.xml");
         transformer.transform(source,result);
     }
 

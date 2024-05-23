@@ -44,7 +44,7 @@ public class availableItems {
         transformer.setOutputProperty(OutputKeys.INDENT,"yes");
         DOMSource source = new DOMSource(items);
 
-        StreamResult result = new StreamResult("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\items.xml");
+        StreamResult result = new StreamResult("C:\\Users\\Giatzo\\IdeaProjects\\tests\\Zorkv_1\\src\\items.xml");
         transformer.transform(source,result);
     }
 

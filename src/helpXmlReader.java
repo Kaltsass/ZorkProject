@@ -9,7 +9,7 @@ public class helpXmlReader {
 
     public static void  main(String [] args)throws Exception{
 
-        File commands = new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\commands.xml");
+        File commands = new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\commands.xml");
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();

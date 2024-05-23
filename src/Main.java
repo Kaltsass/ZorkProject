@@ -18,11 +18,13 @@ public class Main {
         welcoming.main(args);
         System.out.println("\n");
 
+        RoomsAttempt.initializeMap();
+        RoomsAttempt.displayMap();
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\LoadingGame.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txto"));
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\commands.xml"));
+        Document doc = builder.parse(new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\commands.xml"));
 
         Scanner keyboardInput = new Scanner(System.in);
         String userInput;
@@ -43,6 +45,14 @@ public class Main {
 
                     writer.write(userInput);
                     writer.newLine();
+
+                    MovementCreation.handleCommand(userInput, inventory);
+                    if (userInput.equalsIgnoreCase("move forward") ||
+                            userInput.equalsIgnoreCase("move back") ||
+                            userInput.equalsIgnoreCase("move left") ||
+                            userInput.equalsIgnoreCase("move right")) {
+                            RoomsAttempt.displayMap();
+                    }
                 } else if (!userInput.equalsIgnoreCase("exit")) {
                     System.out.println("Invalid command. Type 'help' for available commands.");
                 }
