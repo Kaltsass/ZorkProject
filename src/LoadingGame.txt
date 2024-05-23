@@ -1,2 +1,6 @@
-Open Inventory
-Move Forward
+move forward
+move right
+move right
+move forward
+move right
+open inventory
