@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Main {
 
@@ -58,6 +61,7 @@ public class Main {
             }
 
         } while (!userInput.equalsIgnoreCase("exit"));
+
 
         // Κλείνουμε το αρχείο
         writer.close();
