@@ -10,8 +10,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Main {
@@ -23,11 +21,11 @@ public class Main {
         MovementCreation.displayCurrentRoom();
 
         // Ανοίγουμε το αρχείο για εγγραφή
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\LoadingGame.txt"));
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\commands.xml"));
+        Document doc = builder.parse(new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\commands.xml"));
 
         Scanner keyboardInput = new Scanner(System.in);
         String userInput;

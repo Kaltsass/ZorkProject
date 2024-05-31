@@ -1,0 +1,10 @@
+
+move forward
+move right
+move right
+move forward
+move right
+move forward
+move forward
+move right
+open inventory

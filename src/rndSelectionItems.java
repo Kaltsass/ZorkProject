@@ -62,7 +62,7 @@ public class rndSelectionItems {
 
     public static void main(String[] args) {
         try {
-            File inputFile = new File("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\items.xml");
+            File inputFile = new File("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\items.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(inputFile);

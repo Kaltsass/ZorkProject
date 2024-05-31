@@ -55,7 +55,7 @@ public class RoomInfo {
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(info);
 
-        StreamResult result = new StreamResult("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\RoomInfo.xml");
+        StreamResult result = new StreamResult("C:\\Users\\lange\\IdeaProjects\\tests\\Zorkv_1\\src\\RoomInfo.xml");
         transformer.transform(source,result);
 
 
