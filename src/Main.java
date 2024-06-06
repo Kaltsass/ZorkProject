@@ -1,3 +1,4 @@
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -5,14 +6,13 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class Main {
 
@@ -22,8 +22,8 @@ public class Main {
 
         MovementCreation.displayCurrentRoom();
 
-        // Ανοίγουμε το αρχείο για εγγραφή
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txt"));
+        String saveFilePath = "C:\\Users\\Giatzo\\IdeaProjects\\ZorkProject\\src\\LoadingGame.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, true));
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -33,6 +33,25 @@ public class Main {
         String userInput;
 
         Hashtable<String, String> inventory = new Hashtable<>();
+
+        // Επιλογή New Game ή Load Game
+        System.out.println("Welcome! Would you like to start a new game or load a saved game?");
+        System.out.println("Enter 'new' for a New Game or 'load' for Load Game:");
+
+        String gameChoice = keyboardInput.nextLine().trim().toLowerCase();
+        while (!gameChoice.equals("new") && !gameChoice.equals("load")) {
+            System.out.println("Invalid choice. Please enter 'new' for a New Game or 'load' for Load Game:");
+            gameChoice = keyboardInput.nextLine().trim().toLowerCase();
+        }
+
+        if (gameChoice.equals("load")) {
+            // Φόρτωση προηγούμενων εντολών
+            loadPreviousCommands(saveFilePath, inventory, doc);
+        } else {
+            // Αν είναι New Game, καθαρίζουμε το αρχείο save
+            new FileWriter(saveFilePath, false).close();
+        }
+
         do {
             System.out.println("Enter a command:");
             userInput = keyboardInput.nextLine().trim().toLowerCase();
@@ -44,8 +63,6 @@ public class Main {
                 }
             }
             if (isValidCommand(doc, userInput, inventory)) {
-
-                // Γράφουμε την εντολή στο αρχείο
                 writer.write(userInput);
                 writer.newLine();
 
@@ -62,8 +79,6 @@ public class Main {
 
         } while (!userInput.equalsIgnoreCase("exit"));
 
-
-        // Κλείνουμε το αρχείο
         writer.close();
     }
 
@@ -86,5 +101,19 @@ public class Main {
             }
         }
         return false;
+    }
+
+    private static void loadPreviousCommands(String filePath, Hashtable<String, String> inventory, Document doc) throws Exception {
+        File file = new File(filePath);
+        if (file.exists()) {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (isValidCommand(doc, line, inventory)) {
+                    MovementCreation.handleCommand(line, inventory);
+                }
+            }
+            reader.close();
+        }
     }
 }

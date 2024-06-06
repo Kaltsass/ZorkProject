@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <commands>
     <Move>
-Move Forward 
-Move Left 
-Move Right 
-Move Back 
+Move Forward
+Move Left
+Move Right
+Move Back
 </Move>
     <Go>
-Go Upstairs 
-Go Downstairs 
+Go Upstairs
+Go Downstairs
 </Go>
     <Open>
-Open Door 
-Open PC 
-Open Inventory 
+Open Door
+Open PC
+Open Inventory
 </Open>
     <Pickup>
-Pickup 
+Pickup
 </Pickup>
 </commands>
